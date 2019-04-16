@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Invitation
+{% endblock %}
+
+{% block content %}
+
+
+        <form method="POST" action="{% url 'advertiser_new_invitation' %}">
+        
+            {% csrf_token %}
+            {{ form | crispy }}
+                
+            <button type="submit" >Send Request</button><
+        </form>
+
+    
+{% endblock %}

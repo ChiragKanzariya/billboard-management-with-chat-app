@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Upload video
+{% endblock %}
+
+{% block content %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <b><p style="font-size:40px;">Upload Video</p></b>
+
+        {{ form.as_p }}
+
+        <button type="submit" name="submit">Submit</button>
+    </form>
+    
+    
+{% endblock %}

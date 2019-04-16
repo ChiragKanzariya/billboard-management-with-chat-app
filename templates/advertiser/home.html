@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home: {{ user.username }}
+{% endblock %}
+
+{% block content %}
+    
+  <h2 class="text-primary">Welcome, {{ user.username }}</h2>
+  <h1 style="text-align:center;">Request for Billboard</h1>
+  <a style="margin-left:515px;" href="{% url 'add_video' %}">
+    <button type="submit" class="btn btn-success">Request</button>
+  </a>
+  {% if notifications.count > 0 %}
+    <h3>Notifications</h3>
+    {% for n in notifications %}
+        <p><a href="{% url 'show_notification' %}">{{ n.title }}</a></p>
+    {% endfor %}
+  {% endif %}
+
+  <div>
+    <h1>Registered Billboared</h1>
+    <form action="{% url 'advertiser_home' %}" style="margin-top:50px;" method="post">
+      {% csrf_token %}
+      {% if lists %}
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Owner</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Clip</th>
+            <th>Date to</th>
+            <th>Date from</th>
+            <th>Time to</th>
+            <th>Time from</th>
+          </tr>
+          </thead>
+              {% for list in lists %}
+              
+                    <tr> 
+                      <td>{{ list.owner }}</td>
+                      <td>{{ list.author }}</td>      
+                      <td>{{ list.title }}</td>
+                      <td>{{ list.clip }}</td>
+                      <td>{{ list.date_to }}</td>
+                      <td>{{ list.date_from }}</td>
+                      <td>{{ list.time_to }}</td>
+                      <td>{{ list.time_from }}</td>
+                    </tr>
+
+              {% endfor %}
+          </table>
+
+        {% else %}
+          <p>There are no videos uploaded in the lobby.</p>
+        {% endif %} 
+    </form>
+  </div>
+
+{% endblock content %}
+
+

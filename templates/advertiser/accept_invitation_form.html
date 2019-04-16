@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Accept Invitation
+{% endblock %}
+
+{% block content %}
+
+<div class="well col-md-6">
+    <p><b>{{ invitation.from_author }}</b> requested for a billboard from <b>{{ invitation.date_to }}</b> to <b>{{ invitation.date_from }}</b>.</p>
+    <blockquote><p>{{ invitation.message }}</p></blockquote>
+    
+    <form action="{% url 'advertiser_accept_invitation' id=invitation.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit" name="accept" value="ok">Accept</button>
+        <button type="submit" name="deny" value="no">Deny</button>
+    </form>
+</div>
+    
+{% endblock %}
