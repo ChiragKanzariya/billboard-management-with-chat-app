@@ -1,5 +1,7 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
+from advertiser.models import Post
+
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):

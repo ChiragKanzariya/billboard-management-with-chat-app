@@ -19,7 +19,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -29,7 +28,8 @@ INSTALLED_APPS = [
     'channels',
     'advertiser',
     'chat', 
-
+    'crispy_forms',
+    'notifications',
 ]
 
 MIDDLEWARE = [
@@ -106,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -140,3 +141,5 @@ BOOTSTRAP4 = {
 LOGIN_REDIRECT_URL="advertiser_home"
 LOGOUT_REDIRECT_URL="billboard_welcome"
 LOGIN_URL="advertiser_login"
+
+DJANGO_NOTIFICATIONS_CONFIG = { 'USE_JSONFIELD': True}

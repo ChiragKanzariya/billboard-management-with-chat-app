@@ -34,6 +34,7 @@ Home: {{ user.username }}
             <th>Date from</th>
             <th>Time to</th>
             <th>Time from</th>
+            <th> Chat with admin </th>
           </tr>
           </thead>
               {% for list in lists %}
@@ -47,6 +48,7 @@ Home: {{ user.username }}
                       <td>{{ list.date_from }}</td>
                       <td>{{ list.time_to }}</td>
                       <td>{{ list.time_from }}</td>
+                      <td><a href="{% url 'chat_index' %}" class="btn btn-success"> Chat </a></td>
                     </tr>
 
               {% endfor %}
