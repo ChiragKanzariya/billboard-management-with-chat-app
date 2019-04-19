@@ -19,6 +19,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'webpush',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -29,7 +30,6 @@ INSTALLED_APPS = [
     'advertiser',
     'chat', 
     'crispy_forms',
-    'notifications',
 ]
 
 MIDDLEWARE = [
@@ -104,6 +104,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+WEBPUSH_SETTINGS = {
+    "VAPID_PUBLIC_KEY": "BJLIJXU2e4J4nYCn2tkL-Xbqobw87nRMSqrl7S0V-NzFW2pZC2B7JdsPwMdOr4HeaeDlmV0JEYG9X8g3QCu2eaQ",
+    "VAPID_PRIVATE_KEY": "W0BXnleWDzGiJw9tEh5r8ySA4OWcIWIxnP6Dn1liVGY",
+    "VAPID_ADMIN_EMAIL": "chirag9587@gmail.com"
+}
 
 
 

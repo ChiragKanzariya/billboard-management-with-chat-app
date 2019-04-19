@@ -1,8 +1,10 @@
 from django.conf.urls import url
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth import views
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.base  import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 from advertiser import views
 
@@ -15,4 +17,9 @@ urlpatterns = [
     url(r'^signup$', views.signup, name='advertiser_signup'),
     url(r'invitation$', views.new_invitation, name='advertiser_new_invitation'),
     url(r'accept_invitation/(?P<id>\d+)/$', views.accept_invitation, name="advertiser_accept_invitation"),
-]
+    # url(r'^notification/$', views.notification, name='notificaion'),
+    # url(r'^send_push', views.send_push),
+    # url(r'^notification/sw.js/$', TemplateView.as_view(template_name='advertiser/notification/sw.js', content_type='application/x-javascript')),
+    # url(r'^webpush/', include('webpush.urls')),
+] 
+
