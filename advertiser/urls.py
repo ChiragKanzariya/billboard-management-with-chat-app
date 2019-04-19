@@ -17,8 +17,8 @@ urlpatterns = [
     url(r'^signup$', views.signup, name='advertiser_signup'),
     url(r'invitation$', views.new_invitation, name='advertiser_new_invitation'),
     url(r'accept_invitation/(?P<id>\d+)/$', views.accept_invitation, name="advertiser_accept_invitation"),
-    # url(r'^notification/$', views.notification, name='notificaion'),
-    # url(r'^send_push', views.send_push),
+    url(r'^notification/(?P<id>\d+)/$', views.notification, name='notificaion'),
+    url(r'^send_push', views.send_push),
     # url(r'^notification/sw.js/$', TemplateView.as_view(template_name='advertiser/notification/sw.js', content_type='application/x-javascript')),
     # url(r'^webpush/', include('webpush.urls')),
 ] 

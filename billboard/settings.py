@@ -79,10 +79,10 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME'  : 'billboard',
+        'NAME'  : 'django-push-notification',
         'USER'  : 'chirag.kanzariya',
         'HOST'  : 'localhost',
-        'PORT'  : '',
+        'PORT'  : '5432',
     }
 }
 

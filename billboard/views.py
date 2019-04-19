@@ -36,9 +36,7 @@ def send_push(request):
         user_id = data['id']
         user = get_object_or_404(User, pk=user_id)
         payload = {'head': data['head'], 'body': data['body']}
-        print(payload)
         send_user_notification(user=user, payload=payload, ttl=1000)
-        print(payload)
 
         return JsonResponse(status=200, data={'message': 'Web push successful'})
     except TypeError:
